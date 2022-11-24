@@ -26,6 +26,20 @@ class ProfessoresController extends Controller
     }
 
     public function edit($id){
+        $professor = Professor::findOrFail($id);
+        return view('professores.edit',['professor'=>$professor]);
         
+    }
+
+    public function update(Request $request, $id){
+        $professor = Professor::findOrFail($id);
+
+        $professor->update([
+            'status' =>   $request->status,
+            'nome' =>     $request->nome,
+
+        ]);
+    
+        return "Professor atualizado com Sucesso!";
     }
 }

@@ -27,6 +27,21 @@ class EscolasController extends Controller
     }
 
     public function edit($id){
-        
+        $escola = Escola::findOrFail($id);
+        return view('escolas.edit', ['escola'=> $escola]);
+    }
+
+    public function update(Request $request, $id){
+        $escola = Escola::findOrFail($id);
+
+        $escola->update([
+            'status' =>   $request->status,
+            'inep' =>     $request->inep,
+            'endereço' => $request->endereço,
+            'nome' =>     $request->nome,
+
+        ]);
+    
+        return "Escola atualizada com Sucesso!";
     }
 }

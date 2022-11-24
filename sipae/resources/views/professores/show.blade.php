@@ -10,6 +10,6 @@
         <label for="">Status</label><br/>
         <input type="text" name="status" value="{{$professor->status}}"><br/>
         <label for="">Nome</label><br/>
-        <input type="text" name="nome"   value="{{$professor->nome}}"><br/>
+        <input type="text" name="nome"   value="{{$professor->nome  }}"><br/>
     </body>
 </html>

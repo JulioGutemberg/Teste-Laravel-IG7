@@ -26,6 +26,21 @@ class TurmasController extends Controller
     }
 
     public function edit($id){
+        $turma = Turma::findOrFail($id);
+        return view('turmas.edit',['turma'=>$turma]);
         
+    }
+
+    public function update(Request $request, $id){
+        $turma = Turma::findOrFail($id);
+
+        $turma->update([
+            'status' =>   $request->status,
+            'turno' =>    $request->turno,
+            'nome' =>     $request->nome,
+
+        ]);
+    
+        return "Turma atualizada com Sucesso!";
     }
 }

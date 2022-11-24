@@ -8,12 +8,12 @@
 
     <body>
         <label for="">Status</label><br/>
-        <input type="text" name="status"   value="{{$escola->status}}"><br/>
+        <input type="text" name="status"   value="{{$escola->status  }}"><br/>
         <label for="">Inep</label><br/>
-        <input type="text" name="inep"     value="{{$escola->inep}}"><br/>
+        <input type="text" name="inep"     value="{{$escola->inep    }}"><br/>
         <label for="">Endereço</label><br/>
         <input type="text" name="endereço" value="{{$escola->endereço}}"><br/>
         <label for="">Nome</label><br/>
-        <input type="text" name="nome"     value="{{$escola->nome}}"><br/>
+        <input type="text" name="nome"     value="{{$escola->nome    }}"><br/>
     </body>
 </html>
