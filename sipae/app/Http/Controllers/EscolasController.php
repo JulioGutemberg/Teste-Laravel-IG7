@@ -20,4 +20,13 @@ class EscolasController extends Controller
 
         return "Escola criada com Sucesso!";
     }
+
+    public function show($id){
+        $escola = Escola::findOrFail($id);
+        return view('escolas.show', ['escola'=> $escola]);
+    }
+
+    public function edit($id){
+        
+    }
 }

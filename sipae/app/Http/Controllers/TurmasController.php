@@ -19,4 +19,13 @@ class TurmasController extends Controller
 
         return "Turma criada com Sucesso!";
     }
+
+    public function show($id){
+        $turma = Turma::findOrFail($id);
+        return view('turmas.show',['turma'=>$turma]);
+    }
+
+    public function edit($id){
+        
+    }
 }

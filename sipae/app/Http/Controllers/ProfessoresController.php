@@ -19,4 +19,13 @@ class ProfessoresController extends Controller
 
         return "Professor criado com Sucesso!";
     }
+
+    public function show($id){
+        $professor = Professor::findOrFail($id);
+        return view('professores.show',['professor'=>$professor]);
+    }
+
+    public function edit($id){
+        
+    }
 }

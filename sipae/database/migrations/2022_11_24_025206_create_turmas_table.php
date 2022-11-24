@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('turmas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->boolean("status");
+            $table->string("status");
             $table->string("turno");
             $table->string("nome");            
         });
