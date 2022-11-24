@@ -44,4 +44,17 @@ class EscolasController extends Controller
     
         return "Escola atualizada com Sucesso!";
     }
+
+    public function delete($id){
+        $escola = Escola::findOrFail($id);
+        return view('escolas.delete',['escola' => $escola]);
+    }
+
+    
+    public function destroy($id){
+        $escola = Escola::findOrFail($id);
+        $escola->delete();
+
+        return "Escola excluída com Sucesso";
+    }
 }

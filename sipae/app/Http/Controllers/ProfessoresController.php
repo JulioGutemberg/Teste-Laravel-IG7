@@ -17,7 +17,7 @@ class ProfessoresController extends Controller
             'nome' =>     $request->nome,
         ]);
 
-        return "Professor criado com Sucesso!";
+        return "Professor(a) criado(a) com Sucesso!";
     }
 
     public function show($id){
@@ -40,6 +40,19 @@ class ProfessoresController extends Controller
 
         ]);
     
-        return "Professor atualizado com Sucesso!";
+        return "Professor(a) atualizado(a) com Sucesso!";
+    }
+
+    public function delete($id){
+        $professor = Professor::findOrFail($id);
+        return view('professores.delete',['professor'=>$professor]);
+    }
+
+    
+    public function destroy($id){
+        $professor = Professor::findOrFail($id);
+        $professor->delete();
+
+        return "Professor(a) excluido(a) com Sucesso!";
     }
 }

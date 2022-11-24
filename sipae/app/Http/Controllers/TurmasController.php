@@ -43,4 +43,17 @@ class TurmasController extends Controller
     
         return "Turma atualizada com Sucesso!";
     }
+
+    public function delete($id){
+        $turma = Turma::findOrFail($id);
+        return view('turmas.delete',['turma' => $turma]);
+    }
+
+    
+    public function destroy($id){
+        $turma = Turma::findOrFail($id);
+        $turma->delete();
+
+        return "Turma excluída com Sucesso";
+    }
 }
