@@ -3,18 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Cadastrar uma nova escola</title>
+        <title>Cadastrar uma nova turma</title>
     </head>
     
     <body>
-        <form action="{{ route('registrar_escola') }}" method="POST">
+        <form action="{{ route('registrar_turma') }}" method="POST">
             @csrf
             <label for="">Status</label><br/>
             <input type="text" name="status"><br/>
-            <label for="">INEP</label><br/>
-            <input type="text" name="inep"><br/>
-            <label for="">Endereço</label><br/>
-            <input type="text" name="endereço"><br/>
+            <label for="">Turno</label><br/>
+            <input type="text" name="turno"><br/>
             <label for="">Nome</label><br/>
             <input type="text" name="nome"><br/>
             <button>Salvar</button>

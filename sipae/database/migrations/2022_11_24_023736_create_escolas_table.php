@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->boolean('status');
-            $table->integer('inep');
+            $table->string('inep',8);
             $table->string('endereço');
             $table->string('nome');
         });

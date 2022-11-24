@@ -7,14 +7,10 @@
     </head>
     
     <body>
-        <form action="{{ route('registrar_escola') }}" method="POST">
+        <form action="{{ route('registrar_professor') }}" method="POST">
             @csrf
             <label for="">Status</label><br/>
             <input type="text" name="status"><br/>
-            <label for="">INEP</label><br/>
-            <input type="text" name="inep"><br/>
-            <label for="">Endereço</label><br/>
-            <input type="text" name="endereço"><br/>
             <label for="">Nome</label><br/>
             <input type="text" name="nome"><br/>
             <button>Salvar</button>

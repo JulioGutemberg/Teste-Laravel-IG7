@@ -1,10 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Models\Escola;
 
 class EscolasController extends Controller
 {
     public function create(){
         return view("escolas.create");
+    }
+
+    public function store(Request $request){
+        Escola::create([
+            'status' =>   $request->status,
+            'inep' =>     $request->inep,
+            'endereço' => $request->endereço,
+            'nome' =>     $request->nome,
+        ]);
+
+        return "Escola criada com Sucesso!";
     }
 }
