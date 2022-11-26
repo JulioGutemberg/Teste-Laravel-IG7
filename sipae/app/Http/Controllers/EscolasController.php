@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Escola;
+use Spatie\RouteAttributes\Attributes\Any;
+use Spatie\RouteAttributes\Attributes\Get;
+
 
 class EscolasController extends Controller
 {
+
     public function create(){
         return view("escolas.create");
     }
@@ -21,8 +25,9 @@ class EscolasController extends Controller
         return "Escola criada com Sucesso!";
     }
 
-    public function show($id){
-        $escola = Escola::findOrFail($id);
+    public function show(){
+        
+        $escola= Escola::all();
         return view('escolas.show', ['escola'=> $escola]);
     }
 

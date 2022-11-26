@@ -7,7 +7,7 @@
     </head>
     
     <body>
-        <form action="{{ route('registrar_escola') }}" method="POST">
+        <form action="{{ route('nova_escola_add') }}" method="POST">
             @csrf
             <label for="">Status</label><br/>
             <input type="text" name="status"><br/>
