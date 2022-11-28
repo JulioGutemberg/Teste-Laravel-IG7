@@ -17,35 +17,36 @@ class ProfessoresController extends Controller
             'nome' =>     $request->nome,
         ]);
 
-        return "Professor(a) criado(a) com Sucesso!";
+        return redirect(to:'professores/ver');
     }
 
-    public function show($id){
-        $professor = Professor::findOrFail($id);
+    public function show(){
+        $professor = Professor::all();
         return view('professores.show',['professor'=>$professor]);
     }
 
     public function edit($id){
-        $professor = Professor::findOrFail($id);
-        return view('professores.edit',['professor'=>$professor]);
+        $professores = Professor::findOrFail($id);
+        return view('professores.edit',['professores'=>$professores]);
         
     }
 
     public function update(Request $request, $id){
-        $professor = Professor::findOrFail($id);
 
-        $professor->update([
+        $professores = Professor::findOrFail($id);
+
+        $professores->update([
             'status' =>   $request->status,
             'nome' =>     $request->nome,
 
         ]);
     
-        return "Professor(a) atualizado(a) com Sucesso!";
+        return redirect(to:'professores/ver')->with('Sucesso','Professor(a) Atualizado(a)');
     }
 
     public function delete($id){
         $professor = Professor::findOrFail($id);
-        return view('professores.delete',['professor'=>$professor]);
+        return view('professores.delete',['professores'=>$professor]);
     }
 
     
@@ -53,6 +54,6 @@ class ProfessoresController extends Controller
         $professor = Professor::findOrFail($id);
         $professor->delete();
 
-        return "Professor(a) excluido(a) com Sucesso!";
+        return redirect(to:'professores/ver')->with('Sucesso','Professor(a) Atualizado(a)');
     }
 }
