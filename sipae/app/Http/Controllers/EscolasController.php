@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Escola;
-use Spatie\RouteAttributes\Attributes\Any;
-use Spatie\RouteAttributes\Attributes\Get;
-
 
 class EscolasController extends Controller
 {
@@ -15,14 +12,16 @@ class EscolasController extends Controller
     }
 
     public function store(Request $request){
+        
         Escola::create([
-            'status' =>   $request->status,
-            'inep' =>     $request->inep,
+            'status'   => $request->status,
+            'inep'     => $request->inep,
             'endereço' => $request->endereço,
-            'nome' =>     $request->nome,
+            'nome'     => $request->nome, 
+
         ]);
 
-        return "Escola criada com Sucesso!";
+        return redirect(to:'escola/ver');
     }
 
     public function show(){
@@ -32,27 +31,27 @@ class EscolasController extends Controller
     }
 
     public function edit($id){
-        $escola = Escola::findOrFail($id);
-        return view('escolas.edit', ['escola'=> $escola]);
+        $escolas = Escola::findOrFail($id);
+        return view('escolas.edit', ['escolas'=> $escolas]);
     }
 
-    public function update(Request $request, $id){
-        $escola = Escola::findOrFail($id);
+    public function update(Request $request,$id){
+        
+        $escolas = Escola::findOrFail($id);
 
-        $escola->update([
-            'status' =>   $request->status,
-            'inep' =>     $request->inep,
-            'endereço' => $request->endereço,
-            'nome' =>     $request->nome,
-
+        $escolas->update([
+            'status'  => $request->status,
+            'inep'    => $request->inep, 
+            'endereço'=> $request->endereço,
+            'nome'    => $request->nome
         ]);
     
-        return "Escola atualizada com Sucesso!";
+        return redirect(to:'escola/ver')->with('Sucesso','Escola Atualizada');
     }
 
     public function delete($id){
         $escola = Escola::findOrFail($id);
-        return view('escolas.delete',['escola' => $escola]);
+        return view('escolas.delete', ['escolas' => $escola]);
     }
 
     
@@ -60,6 +59,6 @@ class EscolasController extends Controller
         $escola = Escola::findOrFail($id);
         $escola->delete();
 
-        return "Escola excluída com Sucesso";
+        return redirect(to:'escola/ver')->with('Sucesso','Escola Deletada');
     }
 }

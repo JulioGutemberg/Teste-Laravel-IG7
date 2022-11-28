@@ -17,12 +17,13 @@ use Spatie\Permission\Models\Role;
 |
 */
 
-
-Route::get('/escola/novo', [EscolasController::class, 'create']);
-Route::post('/escola/novo', [EscolasController::class, 'store'])->name('nova_escola_add');
-Route::get('/escola/ver', [EscolasController::class, 'show'])->name('exibir_escolas');
-Route::get('/escola/editar', [EscolasController::class, 'update']);
-Route::post('/escola/editar', [EscolasController::class, 'store'])->name('editar_escola');
+Route::get('/escola/novo', 'app\Http\Controllers\EscolasController@create');
+Route::post('/escola/novo', 'app\Http\Controllers\EscolasController@store')->name("nova_escola_add");
+Route::get('/escola/ver', 'app\Http\Controllers\EscolasController@show')->name("exibir_escolas");
+Route::get('/escola/{id}/editar', 'app\Http\Controllers\EscolasController@edit')->name("edit_view");
+Route::put('/escola/{id}/atualizar/', 'app\Http\Controllers\EscolasController@update')->name("editar_escola");
+Route::get('/escola/{id}/excluir', 'app\Http\Controllers\EscolasController@delete')->name("delete_view");
+Route::delete('/escola/{id}/destroy/', 'app\Http\Controllers\EscolasController@destroy')->name('excluir_escola');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
