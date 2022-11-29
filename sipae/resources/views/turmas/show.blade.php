@@ -28,6 +28,9 @@
                                         Nome
                                     </th>
                                     <th scope="col" class="py-3 px-6 ">
+                                        Professor
+                                    </th>
+                                    <th scope="col" class="py-3 px-6 ">
                                         Ações
                                     </th>
                                 </tr>
@@ -46,6 +49,9 @@
                                         </td>
                                         <td class="py-4 px-6">
                                             {{$turmas['nome']}}
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            {{$turmas['professor_id']}}
                                         </td>
                                         <td class="py-4 px-6">
                                             

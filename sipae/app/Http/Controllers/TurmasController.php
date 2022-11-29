@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Professor;
 use Illuminate\Http\Request;
 use App\Models\Turma;
 
 class TurmasController extends Controller
 {
     public function create(){
-        return view('turmas.create');
+        $professor = Professor::all();
+        return view('turmas.create',['professores'=>$professor]);
     }
-    public function store(Request $request){
+    public function store(Request $request,){
+        
         Turma::create([
-            'status' =>   $request->status,
-            'turno' =>    $request->turno,
-            'nome' =>     $request->nome,
+            'status' =>     $request->status,
+            'turno' =>      $request->turno,
+            'nome' =>       $request->nome,
+            'professor_id'=>$request->professor_id
         ]);
 
         return redirect(to:'turmas/ver');

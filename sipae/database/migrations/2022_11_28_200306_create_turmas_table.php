@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('turmas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("status");
-            $table->string("turno");
-            $table->string("nome");            
+            $table->string   ( "status");
+            $table->string   ( "turno" );
+            $table->string   ( "nome"  );
+            $table->foreignId('professor_id')->constrained('professors');
         });
     }
 
