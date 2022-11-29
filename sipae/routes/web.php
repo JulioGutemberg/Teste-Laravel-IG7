@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\EscolasController;
 use App\Http\Controllers\ProfileController;
-use Database\Seeders\userAdmin;
 use Illuminate\Support\Facades\Route;
-use Spatie\Permission\Models\Role;
+
 
 /*
 |--------------------------------------------------------------------------
